@@ -1,6 +1,6 @@
 <template>
   <div v-on:click="clickTodo()" class="todo-item" :class="todo.state">
-    <button><span>{{ todo.task }}</span> </button>
+    <span>{{ todo.task }}</span>
   </div>
 </template>
 
@@ -38,6 +38,9 @@ export default {
 </script>
 
 <style scoped>
+  div {
+    margin-bottom: 2em;
+  }
   .todo-item {
     border: 1px solid black;
     width: 400px;
