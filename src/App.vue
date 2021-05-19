@@ -53,16 +53,26 @@ export default {
     methods: {
       addIsCalled() {
         console.log('added');
-    },
+      },
       deleteIsCalled() {
         console.log('deleted');
-    },
-    pendingIsCalled() {
-      console.log("pending");
-    },
-    doneIsCalled() {
-      console.log("done");
-    }
+      },
+      pendingIsCalled() {
+        console.log("pending");
+      },
+      doneIsCalled() {
+        console.log("done");
+      },
+      deleteTodo(id) {
+        let newTasklList = [];
+        let item;
+        for (item of this.taskList) {
+          if(item.id != id) {
+            newTasklList.push(item)
+          }
+        }
+        this.taskList = newTasklList;
+      }
   }
 
 }

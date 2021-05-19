@@ -1,6 +1,6 @@
 <template>
-  <div v-on:click="clickTodo()" class="todo-item" :class="todo.state">
-    <span>{{ todo.task }}</span>
+  <div v-on:mouseover="mouseOver()" v-on:mouseleave="mouseLeave()" v-on:click="clickTodo()" class="todo-item" :class="todo.state">
+    <span>{{ todo.task }}</span><MyButton :id="todo.id" @deleted="deleteTodo" v-show="buttonVisible" state="delete">Delete</MyButton>
   </div>
 </template>
 
@@ -23,35 +23,40 @@ export default {
           console.log("mouse is over text from child")
           this.buttonVisable = true
       },
-    clickTodo() {
-      console.log('clicked');
-      if(this.state == "pending") {
-        this.state = "done"
-        this.$emit("marked-as-done");
-      } else {
-        this.state = "pending"
-        this.$emit("marked-as-pending");
+      clickTodo() {
+        console.log('clicked');
+        if(this.state == "pending") {
+          this.state = "done"
+          this.$emit("marked-as-done");
+        } else {
+          this.state = "pending"
+          this.$emit("marked-as-pending");
+        }
+      },
+      deleteTodo(id){
+        console.log(id)
+        this.$emit('todo-deleted', id)
       }
-    }
+      
   }
 }
 </script>
 
 <style scoped>
   div {
-    margin-bottom: 2em;
+    margin-bottom: 1em;
   }
   .todo-item {
-    border: 1px solid black;
+    border: 2px solid black;
     width: 400px;
     padding: 10px;
   }
   .done {
-    background-color: skyblue;
+    background-color: rgb(109, 166, 252);
     color: white;
   }
   .pending {
-    background-color: grey;
+    background-color: rgb(207, 206, 206);
     color: black;
   }
 </style>

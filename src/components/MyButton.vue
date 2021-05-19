@@ -8,7 +8,7 @@
 <script>
 export default {
     name: "Mybutton",
-    props: ['state'],
+    props: ['state',"id"],
     emits: ["added", "deleted"],
     data() {
         return {
@@ -34,9 +34,9 @@ export default {
         padding: 10px;
     }
     .delete {
-        background-color: red;
+        background-color: rgb(253, 45, 45);
     }
     .add {
-        background-color: violet;
+        background-color: rgb(250, 115, 250);
     }
 </style>
