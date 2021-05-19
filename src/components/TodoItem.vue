@@ -8,7 +8,7 @@
 export default {
   name: "TodoItem",
   props: ["todo"],
-  emits: ["marked-as-pending", "marked-as-done"],
+  emits: ["marked-as-pending", "marked-as-done", "todo-deleted"],
   data() {
     return {
       state: "pending",
