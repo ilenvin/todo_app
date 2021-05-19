@@ -30,6 +30,8 @@ export default {
 <style scoped>
     button {
         border: 1px solid black;
+        color: white;
+        padding: 10px;
     }
     .delete {
         background-color: red;
