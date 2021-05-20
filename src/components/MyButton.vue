@@ -18,7 +18,7 @@ export default {
     methods: {
         clickButton() {
             if(this.state == "add") {
-                this.$emit("added");
+                this.$emit("added", this.id);
             } else {
                 this.$emit("deleted", this.id)
             }

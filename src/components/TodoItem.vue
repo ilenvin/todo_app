@@ -8,7 +8,7 @@
 export default {
   name: "TodoItem",
   props: ["todo"],
-  emits: ["marked-as-pending", "marked-as-done", "todo-deleted"],
+  emits: ["marked-as-pending", "marked-as-done", "todo-deleted", "todo-added"],
   data() {
     return {
       state: "pending",
@@ -33,9 +33,12 @@ export default {
         this.$emit("marked-as-pending");
       }
     },
-    deleteTodo(id){
+    deleteTodo(id) {
       console.log(id)
       this.$emit('todo-deleted', id)
+    },
+    addTodo() {
+      this.$emit('todo-added')
     }
       
   }

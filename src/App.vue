@@ -7,9 +7,11 @@
         <TodoItem v-on:marked-as-pending="pendingIsCalled()" v-on:marked-as-done="doneIsCalled()" :todo="todo"></TodoItem>
         <TodoItem v-on:marked-as-pending="pendingIsCalled()" v-on:marked-as-done="doneIsCalled()" :todo="todo1"></TodoItem>-->
       <h2>Todo App</h2>
-      <div>
-        <input type="text" placeholder="Add your new todo" class="todo-item">
-        <MyButton @todo-added="addTodo" v-show="buttonVisible" state="add">Add</MyButton>
+      <div class="todo-item">
+
+        <input v-model="task" type="text" placeholder="Add your new todo">
+        <MyButton @todo-added="addTodo" state="add">Add</MyButton>
+
       </div>
       <TodoItem 
         @todo-deleted="deleteTodo"
@@ -33,6 +35,7 @@ export default {
     name: 'App',
     data() {
     return {
+      task: '',
       taskList: [
         {
           id: 1,
@@ -49,8 +52,9 @@ export default {
           task: "Do homework",
           state: "pending"
         },
-
+      
       ],
+
     }
     },
     components: {
@@ -79,14 +83,14 @@ export default {
         }
         this.taskList = newTasklList;
       },
+      
       addTodo() {
-        if(this.item.length === 0) {
+        if(this.task.length === 0) {
           return;
         }
-        let id;
-        this.items.push({
-          id: id++,
-          task: this.item,
+        this.taskLists.push({
+          id: this.taskList.id++,
+          task: this.task,
           state: "pending"
         })
       }
@@ -96,14 +100,22 @@ export default {
 </script>
 
 <style>
- .todo-item {
-    display: flex;
-    justify-content: space-between;
-    border: 2px solid black;
-    width: 400px;
-    height: 1.5em;
-    padding: 10px;
-    margin-bottom: 1em;
+h2 {
+  text-align: start;
+}
+input{
+  width: 350px;
+  height: 2em;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid black;
+  width: 400px;
+  height: 2em;
+  padding: 10px;
+  margin-bottom: 1em;
   }
 
 #app {
