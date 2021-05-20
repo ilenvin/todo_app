@@ -20,7 +20,7 @@ export default {
             if(this.state == "add") {
                 this.$emit("added");
             } else {
-                this.$emit("deleted")
+                this.$emit("deleted", this.id)
             }
         }
     }
@@ -29,9 +29,9 @@ export default {
 
 <style scoped>
     button {
-        border: 1px solid black;
+        border: 2px solid black;
         color: white;
-        padding: 10px;
+        height: 2em;
     }
     .delete {
         background-color: rgb(253, 45, 45);

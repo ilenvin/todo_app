@@ -42,14 +42,15 @@ export default {
 }
 </script>
 
-<style scoped>
-  div {
-    margin-bottom: 1em;
-  }
+<style scoped> 
   .todo-item {
+    display: flex;
+    justify-content: space-between;
     border: 2px solid black;
     width: 400px;
+    height: 1.5em;
     padding: 10px;
+    margin-bottom: 1em;
   }
   .done {
     background-color: rgb(109, 166, 252);

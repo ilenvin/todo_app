@@ -7,9 +7,10 @@
         <TodoItem v-on:marked-as-pending="pendingIsCalled()" v-on:marked-as-done="doneIsCalled()" :todo="todo"></TodoItem>
         <TodoItem v-on:marked-as-pending="pendingIsCalled()" v-on:marked-as-done="doneIsCalled()" :todo="todo1"></TodoItem>-->
       <TodoItem 
-        :key="todoItem.id" 
-        v-for="todoItem in taskList" 
-        :todo="todoItem">
+        @todo-deleted="deleteTodo"
+        :key="item.id" 
+        v-for="item in taskList" 
+        :todo="item">
       </TodoItem>
 
       <!-- Option2 -->
@@ -21,7 +22,7 @@
 
 <script>
 import TodoItem from './components/TodoItem.vue';
-//import MyButton from './components/MyButton.vue';
+
 
 export default {
     name: 'App',
