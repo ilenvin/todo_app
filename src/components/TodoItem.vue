@@ -12,31 +12,31 @@ export default {
   data() {
     return {
       state: "pending",
-      buttonVisable: false
+      buttonVisible: false
     }
   },
   methods: {
-      mouseLeave() {
-          this.buttonVisable = false
-      },
-      mouseOver() {
-          console.log("mouse is over text from child")
-          this.buttonVisable = true
-      },
-      clickTodo() {
-        console.log('clicked');
-        if(this.state == "pending") {
-          this.state = "done"
-          this.$emit("marked-as-done");
-        } else {
-          this.state = "pending"
-          this.$emit("marked-as-pending");
-        }
-      },
-      deleteTodo(id){
-        console.log(id)
-        this.$emit('todo-deleted', id)
+    mouseLeave() {
+      this.buttonVisible = false
+    },
+    mouseOver() {
+      console.log("mouse is over text from child")
+      this.buttonVisible = true
+    },
+    clickTodo() {
+      console.log('clicked');
+      if(this.state == "pending") {
+        this.state = "done"
+        this.$emit("marked-as-done");
+      } else {
+        this.state = "pending"
+        this.$emit("marked-as-pending");
       }
+    },
+    deleteTodo(id){
+      console.log(id)
+      this.$emit('todo-deleted', id)
+    }
       
   }
 }
