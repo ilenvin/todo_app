@@ -6,6 +6,11 @@
         <br/>
         <TodoItem v-on:marked-as-pending="pendingIsCalled()" v-on:marked-as-done="doneIsCalled()" :todo="todo"></TodoItem>
         <TodoItem v-on:marked-as-pending="pendingIsCalled()" v-on:marked-as-done="doneIsCalled()" :todo="todo1"></TodoItem>-->
+      <h2>Todo App</h2>
+      <div>
+        <input type="text" placeholder="Add your new todo" class="todo-item">
+        <MyButton @todo-added="addTodo" v-show="buttonVisible" state="add">Add</MyButton>
+      </div>
       <TodoItem 
         @todo-deleted="deleteTodo"
         :key="item.id" 
@@ -73,6 +78,17 @@ export default {
           }
         }
         this.taskList = newTasklList;
+      },
+      addTodo() {
+        if(this.item.length === 0) {
+          return;
+        }
+        let id;
+        this.items.push({
+          id: id++,
+          task: this.item,
+          state: "pending"
+        })
       }
   }
 
@@ -80,6 +96,16 @@ export default {
 </script>
 
 <style>
+ .todo-item {
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid black;
+    width: 400px;
+    height: 1.5em;
+    padding: 10px;
+    margin-bottom: 1em;
+  }
+
 #app {
    font-family: Avenir, Helvetica, Arial, sans-serif;
    -webkit-font-smoothing: antialiased;
