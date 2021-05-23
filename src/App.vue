@@ -10,7 +10,7 @@
       <div class="todo-item">
 
         <input v-model="task" type="text" placeholder="Add your new todo">
-        <MyButton @todo-added="addTodo" state="add">Add</MyButton>
+        <MyButton @added="addTodo" state="add">Add</MyButton>
 
       </div>
       <TodoItem 
