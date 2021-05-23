@@ -83,12 +83,14 @@ export default {
         this.taskList = newTasklList;
       },
       
-      addTodo() {
+      addTodo(id) {
+        id = this.taskList.id++;
+        console.log(id)
         if(this.task.length === 0) {
           return;
         }
         this.taskList.push({
-          id: this.taskList.id++,
+          id: this.id,
           task: this.task,
           state: "pending"
         })
