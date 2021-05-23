@@ -30,7 +30,6 @@
 <script>
 import TodoItem from './components/TodoItem.vue';
 
-
 export default {
     name: 'App',
     data() {
@@ -88,7 +87,7 @@ export default {
         if(this.task.length === 0) {
           return;
         }
-        this.taskLists.push({
+        this.taskList.push({
           id: this.taskList.id++,
           task: this.task,
           state: "pending"

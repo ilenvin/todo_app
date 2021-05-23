@@ -37,6 +37,6 @@ export default {
         background-color: rgb(253, 45, 45);
     }
     .add {
-        background-color: rgb(250, 115, 250);
+        background-color: rgb(185, 53, 247);
     }
 </style>

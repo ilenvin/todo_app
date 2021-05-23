@@ -37,8 +37,9 @@ export default {
       console.log(id)
       this.$emit('todo-deleted', id)
     },
-    addTodo() {
-      this.$emit('todo-added')
+    addTodo(id) {
+      console.log(id)
+      this.$emit('todo-added',id)
     }
       
   }
